@@ -15,5 +15,7 @@ CHECK_VERSION=$MAJOR.$MINOR.$PATCH
 LARGEST=$(git tag -l | sort -V -r | head -1)
 GOOD=$(echo -e "$CHECK_VERSION\n$LARGEST" | sort -V -r | head -1)
 if [[ $GOOD == $LARGEST ]]; then
+    echo "New version, '$VERSION', is not greater than largest existing version, '$LARGEST'"
     exit 2
 fi
+echo "New version, '$VERSION', is valid"
