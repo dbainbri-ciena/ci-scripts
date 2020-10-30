@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=${VERSION:-$(cat VERSION)}
+VERSION=${VERSION:-$(cat VERSION | sed -e 's/^v//g')}
 MAJOR=$(echo $VERSION | cut -d. -f1)
 MINOR=$(echo $VERSION | cut -d. -f2)
 PATCH=$(echo $VERSION | cut -d. -f3)
